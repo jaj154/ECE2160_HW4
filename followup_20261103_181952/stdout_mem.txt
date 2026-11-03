@@ -1,0 +1,28 @@
+@@unit=mem
+@@sample_type=double
+@@sample_bytes=8
+@@strategy=copy_sort
+@@n=1000000
+@@window=1000
+@@phase=acquire vmrss_kb=9568 vmhwm_kb=9568 heap_cur=8011760 heap_peak=8011760 t_s=0.030327
+@@phase=filter vmrss_kb=33008 vmhwm_kb=33008 heap_cur=32023536 heap_peak=32023536 t_s=0.324773
+@@phase=summarize vmrss_kb=33040 vmhwm_kb=33040 heap_cur=32055512 heap_peak=32055512 t_s=0.326530
+@@outliers_removed=1036
+@@checksum=70935026
+@@runtime_s=0.327149
+@@heap_peak_bytes=32055512
+@@heap_allocs=5
+@@heap_frees=5
+@@heap_live_at_exit=0
+@@vm_peak_kb=34432
+@@vm_hwm_kb=32304
+@@vm_rss_kb=1872
+@@vm_data_kb=368
+@@vm_stk_kb=144
+@@vm_exe_kb=16
+@@vm_lib_kb=2400
+@@rss_anon_kb=352
+@@rss_file_kb=1520
+@@malloc_arena_bytes=147456
+@@malloc_mmap_bytes=0
+@@malloc_inuse_bytes=4768

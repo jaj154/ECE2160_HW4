@@ -1,0 +1,336 @@
+=== io  -O2 -fconserve-stack
+cmd     : gcc -std=gnu11 -Wall -Wno-unused-function -ffp-contract=off -O2 -fconserve-stack -fstack-usage -I/home/jaj154/ECE2160_HW4/src /home/jaj154/ECE2160_HW4/src/unit_io.c /home/jaj154/ECE2160_HW4/src/critter_common.c /home/jaj154/ECE2160_HW4/src/critter_algo.c -o io -lm -Wl,-Map=io.map
+ok      : True   compile 0.745s
+image   : text=12122 data=832 bss=8256 total=21210  file=73384
+sections: .text=6252 .rodata=1144 .eh_frame(+hdr)=1888 relocs=888
+stack   : worst frame 176 B in main, 0 dynamic frames
+largest : g_status(8192B,b), main(1432B,T), gauss_solve(484B,T), report_tail.constprop.0(440B,t), sensor_read_c(280B,T)
+
+=== io [probe]  -O2 -fconserve-stack
+cmd     : gcc -std=gnu11 -Wall -Wno-unused-function -ffp-contract=off -O2 -fconserve-stack -fstack-usage -DCRITTER_STACK_PROBE -I/home/jaj154/ECE2160_HW4/src /home/jaj154/ECE2160_HW4/src/unit_io.c /home/jaj154/ECE2160_HW4/src/critter_common.c /home/jaj154/ECE2160_HW4/src/critter_algo.c -o io -lm -Wl,-Map=io.map
+ok      : True   compile 0.407s
+image   : text=12683 data=840 bss=8272 total=21795  file=73560
+sections: .text=6604 .rodata=1192 .eh_frame(+hdr)=1976 relocs=912
+stack   : worst frame 1048592 B in probe_paint, 1 dynamic frames
+largest : g_status(8192B,b), main(1432B,T), gauss_solve(484B,T), report_tail(472B,t), sensor_read_c(280B,T)
+
+=== io  -O2 -falign-functions=1
+cmd     : gcc -std=gnu11 -Wall -Wno-unused-function -ffp-contract=off -O2 -falign-functions=1 -fstack-usage -I/home/jaj154/ECE2160_HW4/src /home/jaj154/ECE2160_HW4/src/unit_io.c /home/jaj154/ECE2160_HW4/src/critter_common.c /home/jaj154/ECE2160_HW4/src/critter_algo.c -o io -lm -Wl,-Map=io.map
+ok      : True   compile 0.403s
+image   : text=12058 data=832 bss=8256 total=21146  file=73384
+sections: .text=6188 .rodata=1144 .eh_frame(+hdr)=1888 relocs=888
+stack   : worst frame 176 B in main, 0 dynamic frames
+largest : g_status(8192B,b), main(1432B,T), gauss_solve(492B,T), report_tail.constprop.0(440B,t), sensor_read_c(280B,T)
+
+=== io [probe]  -O2 -falign-functions=1
+cmd     : gcc -std=gnu11 -Wall -Wno-unused-function -ffp-contract=off -O2 -falign-functions=1 -fstack-usage -DCRITTER_STACK_PROBE -I/home/jaj154/ECE2160_HW4/src /home/jaj154/ECE2160_HW4/src/unit_io.c /home/jaj154/ECE2160_HW4/src/critter_common.c /home/jaj154/ECE2160_HW4/src/critter_algo.c -o io -lm -Wl,-Map=io.map
+ok      : True   compile 0.409s
+image   : text=12587 data=840 bss=8272 total=21699  file=73560
+sections: .text=6508 .rodata=1192 .eh_frame(+hdr)=1976 relocs=912
+stack   : worst frame 1048592 B in probe_paint, 1 dynamic frames
+largest : g_status(8192B,b), main(1432B,T), gauss_solve(492B,T), report_tail(472B,t), sensor_read_c(280B,T)
+
+=== io  -O2 -falign-loops=1
+cmd     : gcc -std=gnu11 -Wall -Wno-unused-function -ffp-contract=off -O2 -falign-loops=1 -fstack-usage -I/home/jaj154/ECE2160_HW4/src /home/jaj154/ECE2160_HW4/src/unit_io.c /home/jaj154/ECE2160_HW4/src/critter_common.c /home/jaj154/ECE2160_HW4/src/critter_algo.c -o io -lm -Wl,-Map=io.map
+ok      : True   compile 0.4s
+image   : text=12050 data=832 bss=8256 total=21138  file=73384
+sections: .text=6180 .rodata=1144 .eh_frame(+hdr)=1888 relocs=888
+stack   : worst frame 176 B in main, 0 dynamic frames
+largest : g_status(8192B,b), main(1392B,T), gauss_solve(484B,T), report_tail.constprop.0(440B,t), sensor_read_c(280B,T)
+
+=== io [probe]  -O2 -falign-loops=1
+cmd     : gcc -std=gnu11 -Wall -Wno-unused-function -ffp-contract=off -O2 -falign-loops=1 -fstack-usage -DCRITTER_STACK_PROBE -I/home/jaj154/ECE2160_HW4/src /home/jaj154/ECE2160_HW4/src/unit_io.c /home/jaj154/ECE2160_HW4/src/critter_common.c /home/jaj154/ECE2160_HW4/src/critter_algo.c -o io -lm -Wl,-Map=io.map
+ok      : True   compile 0.409s
+image   : text=12611 data=840 bss=8272 total=21723  file=73560
+sections: .text=6532 .rodata=1192 .eh_frame(+hdr)=1976 relocs=912
+stack   : worst frame 1048592 B in probe_paint, 1 dynamic frames
+largest : g_status(8192B,b), main(1392B,T), gauss_solve(484B,T), report_tail(472B,t), sensor_read_c(280B,T)
+
+=== io  -O2 -falign-functions=1 -falign-jumps=1 -falign-loops=1 -falign-labels=1
+cmd     : gcc -std=gnu11 -Wall -Wno-unused-function -ffp-contract=off -O2 -falign-functions=1 -falign-jumps=1 -falign-loops=1 -falign-labels=1 -fstack-usage -I/home/jaj154/ECE2160_HW4/src /home/jaj154/ECE2160_HW4/src/unit_io.c /home/jaj154/ECE2160_HW4/src/critter_common.c /home/jaj154/ECE2160_HW4/src/critter_algo.c -o io -lm -Wl,-Map=io.map
+ok      : True   compile 0.4s
+image   : text=11914 data=832 bss=8256 total=21002  file=73384
+sections: .text=6044 .rodata=1144 .eh_frame(+hdr)=1888 relocs=888
+stack   : worst frame 176 B in main, 0 dynamic frames
+largest : g_status(8192B,b), main(1392B,T), gauss_solve(484B,T), report_tail.constprop.0(440B,t), sensor_read_c(280B,T)
+
+=== io [probe]  -O2 -falign-functions=1 -falign-jumps=1 -falign-loops=1 -falign-labels=1
+cmd     : gcc -std=gnu11 -Wall -Wno-unused-function -ffp-contract=off -O2 -falign-functions=1 -falign-jumps=1 -falign-loops=1 -falign-labels=1 -fstack-usage -DCRITTER_STACK_PROBE -I/home/jaj154/ECE2160_HW4/src /home/jaj154/ECE2160_HW4/src/unit_io.c /home/jaj154/ECE2160_HW4/src/critter_common.c /home/jaj154/ECE2160_HW4/src/critter_algo.c -o io -lm -Wl,-Map=io.map
+ok      : True   compile 0.437s
+image   : text=12443 data=840 bss=8272 total=21555  file=73560
+sections: .text=6364 .rodata=1192 .eh_frame(+hdr)=1976 relocs=912
+stack   : worst frame 1048592 B in probe_paint, 1 dynamic frames
+largest : g_status(8192B,b), main(1392B,T), gauss_solve(484B,T), report_tail(472B,t), sensor_read_c(280B,T)
+
+=== io  -O2 -flto -fwhole-program
+cmd     : gcc -std=gnu11 -Wall -Wno-unused-function -ffp-contract=off -O2 -flto -fwhole-program -fstack-usage -I/home/jaj154/ECE2160_HW4/src /home/jaj154/ECE2160_HW4/src/unit_io.c /home/jaj154/ECE2160_HW4/src/critter_common.c /home/jaj154/ECE2160_HW4/src/critter_algo.c -o io -lm -Wl,-Map=io.map
+ok      : True   compile 0.633s
+image   : text=8925 data=824 bss=8256 total=18005  file=72344
+sections: .text=3944 .rodata=1152 .eh_frame(+hdr)=1064 relocs=864
+stack   : worst frame 176 B in main, 0 dynamic frames
+largest : g_status(8192B,b), main(1620B,T), report_tail.constprop.0(388B,t), sensor_read_c(280B,t), summarize_buffer(232B,t)
+
+=== io [probe]  -O2 -flto -fwhole-program
+cmd     : gcc -std=gnu11 -Wall -Wno-unused-function -ffp-contract=off -O2 -flto -fwhole-program -fstack-usage -DCRITTER_STACK_PROBE -I/home/jaj154/ECE2160_HW4/src /home/jaj154/ECE2160_HW4/src/unit_io.c /home/jaj154/ECE2160_HW4/src/critter_common.c /home/jaj154/ECE2160_HW4/src/critter_algo.c -o io -lm -Wl,-Map=io.map
+ok      : True   compile 0.397s
+image   : text=9394 data=832 bss=8272 total=18498  file=72520
+sections: .text=4216 .rodata=1200 .eh_frame(+hdr)=1140 relocs=888
+stack   : worst frame 1048592 B in probe_paint, 1 dynamic frames
+largest : g_status(8192B,b), main(1660B,T), report_tail(412B,t), sensor_read_c(280B,t), summarize_buffer(232B,t)
+
+=== io  -O2 -Wl,-z,norelro
+cmd     : gcc -std=gnu11 -Wall -Wno-unused-function -ffp-contract=off -O2 -fstack-usage -I/home/jaj154/ECE2160_HW4/src /home/jaj154/ECE2160_HW4/src/unit_io.c /home/jaj154/ECE2160_HW4/src/critter_common.c /home/jaj154/ECE2160_HW4/src/critter_algo.c -o io -Wl,-z,norelro -lm -Wl,-Map=io.map
+ok      : True   compile 0.404s
+image   : text=12122 data=832 bss=8256 total=21210  file=21192
+sections: .text=6252 .rodata=1144 .eh_frame(+hdr)=1888 relocs=888
+stack   : worst frame 176 B in main, 0 dynamic frames
+largest : g_status(8192B,b), main(1432B,T), gauss_solve(484B,T), report_tail.constprop.0(440B,t), sensor_read_c(280B,T)
+
+=== io [probe]  -O2 -Wl,-z,norelro
+cmd     : gcc -std=gnu11 -Wall -Wno-unused-function -ffp-contract=off -O2 -fstack-usage -DCRITTER_STACK_PROBE -I/home/jaj154/ECE2160_HW4/src /home/jaj154/ECE2160_HW4/src/unit_io.c /home/jaj154/ECE2160_HW4/src/critter_common.c /home/jaj154/ECE2160_HW4/src/critter_algo.c -o io -Wl,-z,norelro -lm -Wl,-Map=io.map
+ok      : True   compile 0.41s
+image   : text=12683 data=840 bss=8272 total=21795  file=21920
+sections: .text=6604 .rodata=1192 .eh_frame(+hdr)=1976 relocs=912
+stack   : worst frame 1048592 B in probe_paint, 1 dynamic frames
+largest : g_status(8192B,b), main(1432B,T), gauss_solve(484B,T), report_tail(472B,t), sensor_read_c(280B,T)
+
+=== io  -O2 -Wl,-z,noseparate-code
+cmd     : gcc -std=gnu11 -Wall -Wno-unused-function -ffp-contract=off -O2 -fstack-usage -I/home/jaj154/ECE2160_HW4/src /home/jaj154/ECE2160_HW4/src/unit_io.c /home/jaj154/ECE2160_HW4/src/critter_common.c /home/jaj154/ECE2160_HW4/src/critter_algo.c -o io -Wl,-z,noseparate-code -lm -Wl,-Map=io.map
+ok      : True   compile 0.399s
+image   : text=12122 data=832 bss=8256 total=21210  file=73384
+sections: .text=6252 .rodata=1144 .eh_frame(+hdr)=1888 relocs=888
+stack   : worst frame 176 B in main, 0 dynamic frames
+largest : g_status(8192B,b), main(1432B,T), gauss_solve(484B,T), report_tail.constprop.0(440B,t), sensor_read_c(280B,T)
+
+=== io [probe]  -O2 -Wl,-z,noseparate-code
+cmd     : gcc -std=gnu11 -Wall -Wno-unused-function -ffp-contract=off -O2 -fstack-usage -DCRITTER_STACK_PROBE -I/home/jaj154/ECE2160_HW4/src /home/jaj154/ECE2160_HW4/src/unit_io.c /home/jaj154/ECE2160_HW4/src/critter_common.c /home/jaj154/ECE2160_HW4/src/critter_algo.c -o io -Wl,-z,noseparate-code -lm -Wl,-Map=io.map
+ok      : True   compile 0.412s
+image   : text=12683 data=840 bss=8272 total=21795  file=73560
+sections: .text=6604 .rodata=1192 .eh_frame(+hdr)=1976 relocs=912
+stack   : worst frame 1048592 B in probe_paint, 1 dynamic frames
+largest : g_status(8192B,b), main(1432B,T), gauss_solve(484B,T), report_tail(472B,t), sensor_read_c(280B,T)
+
+=== mem  -O2 -fconserve-stack
+cmd     : gcc -std=gnu11 -Wall -Wno-unused-function -ffp-contract=off -O2 -fconserve-stack -fstack-usage -I/home/jaj154/ECE2160_HW4/src /home/jaj154/ECE2160_HW4/src/unit_mem.c /home/jaj154/ECE2160_HW4/src/critter_common.c /home/jaj154/ECE2160_HW4/src/critter_algo.c -o mem -lm -Wl,-Map=mem.map
+ok      : True   compile 0.432s
+image   : text=13091 data=872 bss=88272 total=102235  file=73616
+sections: .text=6860 .rodata=1144 .eh_frame(+hdr)=1984 relocs=1008
+stack   : worst frame 176 B in main, 0 dynamic frames
+largest : g_hist(80004B,b), g_status(8192B,b), main(1956B,T), gauss_solve(484B,T), report_tail.constprop.0(440B,t)
+
+=== mem [probe]  -O2 -fconserve-stack
+cmd     : gcc -std=gnu11 -Wall -Wno-unused-function -ffp-contract=off -O2 -fconserve-stack -fstack-usage -DCRITTER_STACK_PROBE -I/home/jaj154/ECE2160_HW4/src /home/jaj154/ECE2160_HW4/src/unit_mem.c /home/jaj154/ECE2160_HW4/src/critter_common.c /home/jaj154/ECE2160_HW4/src/critter_algo.c -o mem -lm -Wl,-Map=mem.map
+ok      : True   compile 0.437s
+image   : text=13652 data=880 bss=88288 total=102820  file=73800
+sections: .text=7212 .rodata=1192 .eh_frame(+hdr)=2072 relocs=1032
+stack   : worst frame 1048592 B in probe_paint, 1 dynamic frames
+largest : g_hist(80004B,b), g_status(8192B,b), main(1956B,T), gauss_solve(484B,T), report_tail(472B,t)
+
+=== mem  -O2 -falign-functions=1
+cmd     : gcc -std=gnu11 -Wall -Wno-unused-function -ffp-contract=off -O2 -falign-functions=1 -fstack-usage -I/home/jaj154/ECE2160_HW4/src /home/jaj154/ECE2160_HW4/src/unit_mem.c /home/jaj154/ECE2160_HW4/src/critter_common.c /home/jaj154/ECE2160_HW4/src/critter_algo.c -o mem -lm -Wl,-Map=mem.map
+ok      : True   compile 0.426s
+image   : text=13027 data=872 bss=88272 total=102171  file=73616
+sections: .text=6796 .rodata=1144 .eh_frame(+hdr)=1984 relocs=1008
+stack   : worst frame 176 B in main, 0 dynamic frames
+largest : g_hist(80004B,b), g_status(8192B,b), main(1956B,T), gauss_solve(492B,T), report_tail.constprop.0(440B,t)
+
+=== mem [probe]  -O2 -falign-functions=1
+cmd     : gcc -std=gnu11 -Wall -Wno-unused-function -ffp-contract=off -O2 -falign-functions=1 -fstack-usage -DCRITTER_STACK_PROBE -I/home/jaj154/ECE2160_HW4/src /home/jaj154/ECE2160_HW4/src/unit_mem.c /home/jaj154/ECE2160_HW4/src/critter_common.c /home/jaj154/ECE2160_HW4/src/critter_algo.c -o mem -lm -Wl,-Map=mem.map
+ok      : True   compile 0.438s
+image   : text=13556 data=880 bss=88288 total=102724  file=73800
+sections: .text=7116 .rodata=1192 .eh_frame(+hdr)=2072 relocs=1032
+stack   : worst frame 1048592 B in probe_paint, 1 dynamic frames
+largest : g_hist(80004B,b), g_status(8192B,b), main(1956B,T), gauss_solve(492B,T), report_tail(472B,t)
+
+=== mem  -O2 -falign-loops=1
+cmd     : gcc -std=gnu11 -Wall -Wno-unused-function -ffp-contract=off -O2 -falign-loops=1 -fstack-usage -I/home/jaj154/ECE2160_HW4/src /home/jaj154/ECE2160_HW4/src/unit_mem.c /home/jaj154/ECE2160_HW4/src/critter_common.c /home/jaj154/ECE2160_HW4/src/critter_algo.c -o mem -lm -Wl,-Map=mem.map
+ok      : True   compile 0.445s
+image   : text=13019 data=872 bss=88272 total=102163  file=73616
+sections: .text=6788 .rodata=1144 .eh_frame(+hdr)=1984 relocs=1008
+stack   : worst frame 176 B in main, 0 dynamic frames
+largest : g_hist(80004B,b), g_status(8192B,b), main(1916B,T), gauss_solve(484B,T), report_tail.constprop.0(440B,t)
+
+=== mem [probe]  -O2 -falign-loops=1
+cmd     : gcc -std=gnu11 -Wall -Wno-unused-function -ffp-contract=off -O2 -falign-loops=1 -fstack-usage -DCRITTER_STACK_PROBE -I/home/jaj154/ECE2160_HW4/src /home/jaj154/ECE2160_HW4/src/unit_mem.c /home/jaj154/ECE2160_HW4/src/critter_common.c /home/jaj154/ECE2160_HW4/src/critter_algo.c -o mem -lm -Wl,-Map=mem.map
+ok      : True   compile 0.438s
+image   : text=13580 data=880 bss=88288 total=102748  file=73800
+sections: .text=7140 .rodata=1192 .eh_frame(+hdr)=2072 relocs=1032
+stack   : worst frame 1048592 B in probe_paint, 1 dynamic frames
+largest : g_hist(80004B,b), g_status(8192B,b), main(1916B,T), gauss_solve(484B,T), report_tail(472B,t)
+
+=== mem  -O2 -falign-functions=1 -falign-jumps=1 -falign-loops=1 -falign-labels=1
+cmd     : gcc -std=gnu11 -Wall -Wno-unused-function -ffp-contract=off -O2 -falign-functions=1 -falign-jumps=1 -falign-loops=1 -falign-labels=1 -fstack-usage -I/home/jaj154/ECE2160_HW4/src /home/jaj154/ECE2160_HW4/src/unit_mem.c /home/jaj154/ECE2160_HW4/src/critter_common.c /home/jaj154/ECE2160_HW4/src/critter_algo.c -o mem -lm -Wl,-Map=mem.map
+ok      : True   compile 0.429s
+image   : text=12879 data=872 bss=88272 total=102023  file=73616
+sections: .text=6648 .rodata=1144 .eh_frame(+hdr)=1984 relocs=1008
+stack   : worst frame 176 B in main, 0 dynamic frames
+largest : g_hist(80004B,b), g_status(8192B,b), main(1916B,T), gauss_solve(484B,T), report_tail.constprop.0(440B,t)
+
+=== mem [probe]  -O2 -falign-functions=1 -falign-jumps=1 -falign-loops=1 -falign-labels=1
+cmd     : gcc -std=gnu11 -Wall -Wno-unused-function -ffp-contract=off -O2 -falign-functions=1 -falign-jumps=1 -falign-loops=1 -falign-labels=1 -fstack-usage -DCRITTER_STACK_PROBE -I/home/jaj154/ECE2160_HW4/src /home/jaj154/ECE2160_HW4/src/unit_mem.c /home/jaj154/ECE2160_HW4/src/critter_common.c /home/jaj154/ECE2160_HW4/src/critter_algo.c -o mem -lm -Wl,-Map=mem.map
+ok      : True   compile 0.437s
+image   : text=13408 data=880 bss=88288 total=102576  file=73800
+sections: .text=6968 .rodata=1192 .eh_frame(+hdr)=2072 relocs=1032
+stack   : worst frame 1048592 B in probe_paint, 1 dynamic frames
+largest : g_hist(80004B,b), g_status(8192B,b), main(1916B,T), gauss_solve(484B,T), report_tail(472B,t)
+
+=== mem  -O2 -flto -fwhole-program
+cmd     : gcc -std=gnu11 -Wall -Wno-unused-function -ffp-contract=off -O2 -flto -fwhole-program -fstack-usage -I/home/jaj154/ECE2160_HW4/src /home/jaj154/ECE2160_HW4/src/unit_mem.c /home/jaj154/ECE2160_HW4/src/critter_common.c /home/jaj154/ECE2160_HW4/src/critter_algo.c -o mem -lm -Wl,-Map=mem.map
+ok      : True   compile 0.455s
+image   : text=10228 data=840 bss=88264 total=99332  file=72656
+sections: .text=5012 .rodata=1152 .eh_frame(+hdr)=1156 relocs=912
+stack   : worst frame 176 B in main, 0 dynamic frames
+largest : g_hist(80004B,b), g_status(8192B,b), main(2100B,T), report_tail.constprop.0(388B,t), median_select.part.0(296B,t)
+
+=== mem [probe]  -O2 -flto -fwhole-program
+cmd     : gcc -std=gnu11 -Wall -Wno-unused-function -ffp-contract=off -O2 -flto -fwhole-program -fstack-usage -DCRITTER_STACK_PROBE -I/home/jaj154/ECE2160_HW4/src /home/jaj154/ECE2160_HW4/src/unit_mem.c /home/jaj154/ECE2160_HW4/src/critter_common.c /home/jaj154/ECE2160_HW4/src/critter_algo.c -o mem -lm -Wl,-Map=mem.map
+ok      : True   compile 0.455s
+image   : text=10741 data=848 bss=88280 total=99869  file=72840
+sections: .text=5328 .rodata=1200 .eh_frame(+hdr)=1232 relocs=936
+stack   : worst frame 1048592 B in probe_paint, 1 dynamic frames
+largest : g_hist(80004B,b), g_status(8192B,b), main(2160B,T), report_tail(412B,t), median_select.part.0(296B,t)
+
+=== mem  -O2 -Wl,-z,norelro
+cmd     : gcc -std=gnu11 -Wall -Wno-unused-function -ffp-contract=off -O2 -fstack-usage -I/home/jaj154/ECE2160_HW4/src /home/jaj154/ECE2160_HW4/src/unit_mem.c /home/jaj154/ECE2160_HW4/src/critter_common.c /home/jaj154/ECE2160_HW4/src/critter_algo.c -o mem -Wl,-z,norelro -lm -Wl,-Map=mem.map
+ok      : True   compile 0.429s
+image   : text=13091 data=872 bss=88272 total=102235  file=25080
+sections: .text=6860 .rodata=1144 .eh_frame(+hdr)=1984 relocs=1008
+stack   : worst frame 176 B in main, 0 dynamic frames
+largest : g_hist(80004B,b), g_status(8192B,b), main(1956B,T), gauss_solve(484B,T), report_tail.constprop.0(440B,t)
+
+=== mem [probe]  -O2 -Wl,-z,norelro
+cmd     : gcc -std=gnu11 -Wall -Wno-unused-function -ffp-contract=off -O2 -fstack-usage -DCRITTER_STACK_PROBE -I/home/jaj154/ECE2160_HW4/src /home/jaj154/ECE2160_HW4/src/unit_mem.c /home/jaj154/ECE2160_HW4/src/critter_common.c /home/jaj154/ECE2160_HW4/src/critter_algo.c -o mem -Wl,-z,norelro -lm -Wl,-Map=mem.map
+ok      : True   compile 0.439s
+image   : text=13652 data=880 bss=88288 total=102820  file=25264
+sections: .text=7212 .rodata=1192 .eh_frame(+hdr)=2072 relocs=1032
+stack   : worst frame 1048592 B in probe_paint, 1 dynamic frames
+largest : g_hist(80004B,b), g_status(8192B,b), main(1956B,T), gauss_solve(484B,T), report_tail(472B,t)
+
+=== mem  -O2 -Wl,-z,noseparate-code
+cmd     : gcc -std=gnu11 -Wall -Wno-unused-function -ffp-contract=off -O2 -fstack-usage -I/home/jaj154/ECE2160_HW4/src /home/jaj154/ECE2160_HW4/src/unit_mem.c /home/jaj154/ECE2160_HW4/src/critter_common.c /home/jaj154/ECE2160_HW4/src/critter_algo.c -o mem -Wl,-z,noseparate-code -lm -Wl,-Map=mem.map
+ok      : True   compile 0.427s
+image   : text=13091 data=872 bss=88272 total=102235  file=73616
+sections: .text=6860 .rodata=1144 .eh_frame(+hdr)=1984 relocs=1008
+stack   : worst frame 176 B in main, 0 dynamic frames
+largest : g_hist(80004B,b), g_status(8192B,b), main(1956B,T), gauss_solve(484B,T), report_tail.constprop.0(440B,t)
+
+=== mem [probe]  -O2 -Wl,-z,noseparate-code
+cmd     : gcc -std=gnu11 -Wall -Wno-unused-function -ffp-contract=off -O2 -fstack-usage -DCRITTER_STACK_PROBE -I/home/jaj154/ECE2160_HW4/src /home/jaj154/ECE2160_HW4/src/unit_mem.c /home/jaj154/ECE2160_HW4/src/critter_common.c /home/jaj154/ECE2160_HW4/src/critter_algo.c -o mem -Wl,-z,noseparate-code -lm -Wl,-Map=mem.map
+ok      : True   compile 0.437s
+image   : text=13652 data=880 bss=88288 total=102820  file=73800
+sections: .text=7212 .rodata=1192 .eh_frame(+hdr)=2072 relocs=1032
+stack   : worst frame 1048592 B in probe_paint, 1 dynamic frames
+largest : g_hist(80004B,b), g_status(8192B,b), main(1956B,T), gauss_solve(484B,T), report_tail(472B,t)
+
+=== compute  -O2 -fconserve-stack
+cmd     : gcc -std=gnu11 -Wall -Wno-unused-function -ffp-contract=off -O2 -fconserve-stack -fstack-usage -I/home/jaj154/ECE2160_HW4/src /home/jaj154/ECE2160_HW4/src/unit_compute.c /home/jaj154/ECE2160_HW4/src/critter_common.c /home/jaj154/ECE2160_HW4/src/critter_algo.c -o compute -lm -Wl,-Map=compute.map
+ok      : True   compile 0.454s
+image   : text=13482 data=848 bss=49472 total=63802  file=73704
+sections: .text=7244 .rodata=1248 .eh_frame(+hdr)=2008 relocs=936
+stack   : worst frame 41232 B in scratch_on_stack, 0 dynamic frames
+largest : g_static_work(32768B,b), g_static_aug(8448B,b), g_status(8192B,b), main(1576B,T), solve_forecast(528B,t)
+
+=== compute [probe]  -O2 -fconserve-stack
+cmd     : gcc -std=gnu11 -Wall -Wno-unused-function -ffp-contract=off -O2 -fconserve-stack -fstack-usage -DCRITTER_STACK_PROBE -I/home/jaj154/ECE2160_HW4/src /home/jaj154/ECE2160_HW4/src/unit_compute.c /home/jaj154/ECE2160_HW4/src/critter_common.c /home/jaj154/ECE2160_HW4/src/critter_algo.c -o compute -lm -Wl,-Map=compute.map
+ok      : True   compile 0.458s
+image   : text=14043 data=856 bss=49488 total=64387  file=73880
+sections: .text=7596 .rodata=1296 .eh_frame(+hdr)=2096 relocs=960
+stack   : worst frame 1048592 B in probe_paint, 1 dynamic frames
+largest : g_static_work(32768B,b), g_static_aug(8448B,b), g_status(8192B,b), main(1576B,T), solve_forecast(528B,t)
+
+=== compute  -O2 -falign-functions=1
+cmd     : gcc -std=gnu11 -Wall -Wno-unused-function -ffp-contract=off -O2 -falign-functions=1 -fstack-usage -I/home/jaj154/ECE2160_HW4/src /home/jaj154/ECE2160_HW4/src/unit_compute.c /home/jaj154/ECE2160_HW4/src/critter_common.c /home/jaj154/ECE2160_HW4/src/critter_algo.c -o compute -lm -Wl,-Map=compute.map
+ok      : True   compile 0.451s
+image   : text=13418 data=848 bss=49472 total=63738  file=73704
+sections: .text=7180 .rodata=1248 .eh_frame(+hdr)=2008 relocs=936
+stack   : worst frame 41232 B in scratch_on_stack, 0 dynamic frames
+largest : g_static_work(32768B,b), g_static_aug(8448B,b), g_status(8192B,b), main(1576B,T), solve_forecast(532B,t)
+
+=== compute [probe]  -O2 -falign-functions=1
+cmd     : gcc -std=gnu11 -Wall -Wno-unused-function -ffp-contract=off -O2 -falign-functions=1 -fstack-usage -DCRITTER_STACK_PROBE -I/home/jaj154/ECE2160_HW4/src /home/jaj154/ECE2160_HW4/src/unit_compute.c /home/jaj154/ECE2160_HW4/src/critter_common.c /home/jaj154/ECE2160_HW4/src/critter_algo.c -o compute -lm -Wl,-Map=compute.map
+ok      : True   compile 0.458s
+image   : text=13947 data=856 bss=49488 total=64291  file=73880
+sections: .text=7500 .rodata=1296 .eh_frame(+hdr)=2096 relocs=960
+stack   : worst frame 1048592 B in probe_paint, 1 dynamic frames
+largest : g_static_work(32768B,b), g_static_aug(8448B,b), g_status(8192B,b), main(1576B,T), solve_forecast(532B,t)
+
+=== compute  -O2 -falign-loops=1
+cmd     : gcc -std=gnu11 -Wall -Wno-unused-function -ffp-contract=off -O2 -falign-loops=1 -fstack-usage -I/home/jaj154/ECE2160_HW4/src /home/jaj154/ECE2160_HW4/src/unit_compute.c /home/jaj154/ECE2160_HW4/src/critter_common.c /home/jaj154/ECE2160_HW4/src/critter_algo.c -o compute -lm -Wl,-Map=compute.map
+ok      : True   compile 0.448s
+image   : text=13442 data=848 bss=49472 total=63762  file=73704
+sections: .text=7204 .rodata=1248 .eh_frame(+hdr)=2008 relocs=936
+stack   : worst frame 41232 B in scratch_on_stack, 0 dynamic frames
+largest : g_static_work(32768B,b), g_static_aug(8448B,b), g_status(8192B,b), main(1560B,T), solve_forecast(504B,t)
+
+=== compute [probe]  -O2 -falign-loops=1
+cmd     : gcc -std=gnu11 -Wall -Wno-unused-function -ffp-contract=off -O2 -falign-loops=1 -fstack-usage -DCRITTER_STACK_PROBE -I/home/jaj154/ECE2160_HW4/src /home/jaj154/ECE2160_HW4/src/unit_compute.c /home/jaj154/ECE2160_HW4/src/critter_common.c /home/jaj154/ECE2160_HW4/src/critter_algo.c -o compute -lm -Wl,-Map=compute.map
+ok      : True   compile 0.457s
+image   : text=14003 data=856 bss=49488 total=64347  file=73880
+sections: .text=7556 .rodata=1296 .eh_frame(+hdr)=2096 relocs=960
+stack   : worst frame 1048592 B in probe_paint, 1 dynamic frames
+largest : g_static_work(32768B,b), g_static_aug(8448B,b), g_status(8192B,b), main(1560B,T), solve_forecast(504B,t)
+
+=== compute  -O2 -falign-functions=1 -falign-jumps=1 -falign-loops=1 -falign-labels=1
+cmd     : gcc -std=gnu11 -Wall -Wno-unused-function -ffp-contract=off -O2 -falign-functions=1 -falign-jumps=1 -falign-loops=1 -falign-labels=1 -fstack-usage -I/home/jaj154/ECE2160_HW4/src /home/jaj154/ECE2160_HW4/src/unit_compute.c /home/jaj154/ECE2160_HW4/src/critter_common.c /home/jaj154/ECE2160_HW4/src/critter_algo.c -o compute -lm -Wl,-Map=compute.map
+ok      : True   compile 0.448s
+image   : text=13306 data=848 bss=49472 total=63626  file=73704
+sections: .text=7068 .rodata=1248 .eh_frame(+hdr)=2008 relocs=936
+stack   : worst frame 41232 B in scratch_on_stack, 0 dynamic frames
+largest : g_static_work(32768B,b), g_static_aug(8448B,b), g_status(8192B,b), main(1560B,T), solve_forecast(504B,t)
+
+=== compute [probe]  -O2 -falign-functions=1 -falign-jumps=1 -falign-loops=1 -falign-labels=1
+cmd     : gcc -std=gnu11 -Wall -Wno-unused-function -ffp-contract=off -O2 -falign-functions=1 -falign-jumps=1 -falign-loops=1 -falign-labels=1 -fstack-usage -DCRITTER_STACK_PROBE -I/home/jaj154/ECE2160_HW4/src /home/jaj154/ECE2160_HW4/src/unit_compute.c /home/jaj154/ECE2160_HW4/src/critter_common.c /home/jaj154/ECE2160_HW4/src/critter_algo.c -o compute -lm -Wl,-Map=compute.map
+ok      : True   compile 0.457s
+image   : text=13835 data=856 bss=49488 total=64179  file=73880
+sections: .text=7388 .rodata=1296 .eh_frame(+hdr)=2096 relocs=960
+stack   : worst frame 1048592 B in probe_paint, 1 dynamic frames
+largest : g_static_work(32768B,b), g_static_aug(8448B,b), g_status(8192B,b), main(1560B,T), solve_forecast(504B,t)
+
+=== compute  -O2 -flto -fwhole-program
+cmd     : gcc -std=gnu11 -Wall -Wno-unused-function -ffp-contract=off -O2 -flto -fwhole-program -fstack-usage -I/home/jaj154/ECE2160_HW4/src /home/jaj154/ECE2160_HW4/src/unit_compute.c /home/jaj154/ECE2160_HW4/src/critter_common.c /home/jaj154/ECE2160_HW4/src/critter_algo.c -o compute -lm -Wl,-Map=compute.map
+ok      : True   compile 0.473s
+image   : text=10643 data=832 bss=49472 total=60947  file=72560
+sections: .text=5380 .rodata=1264 .eh_frame(+hdr)=1164 relocs=888
+stack   : worst frame 41232 B in scratch_on_stack, 0 dynamic frames
+largest : g_static_work(32768B,b), g_static_aug(8448B,b), g_status(8192B,b), main(1676B,T), solve_forecast(904B,t)
+
+=== compute [probe]  -O2 -flto -fwhole-program
+cmd     : gcc -std=gnu11 -Wall -Wno-unused-function -ffp-contract=off -O2 -flto -fwhole-program -fstack-usage -DCRITTER_STACK_PROBE -I/home/jaj154/ECE2160_HW4/src /home/jaj154/ECE2160_HW4/src/unit_compute.c /home/jaj154/ECE2160_HW4/src/critter_common.c /home/jaj154/ECE2160_HW4/src/critter_algo.c -o compute -lm -Wl,-Map=compute.map
+ok      : True   compile 0.477s
+image   : text=11088 data=840 bss=49488 total=61416  file=72736
+sections: .text=5628 .rodata=1312 .eh_frame(+hdr)=1240 relocs=912
+stack   : worst frame 1048592 B in probe_paint, 1 dynamic frames
+largest : g_static_work(32768B,b), g_static_aug(8448B,b), g_status(8192B,b), main(1708B,T), solve_forecast(904B,t)
+
+=== compute  -O2 -Wl,-z,norelro
+cmd     : gcc -std=gnu11 -Wall -Wno-unused-function -ffp-contract=off -O2 -fstack-usage -I/home/jaj154/ECE2160_HW4/src /home/jaj154/ECE2160_HW4/src/unit_compute.c /home/jaj154/ECE2160_HW4/src/critter_common.c /home/jaj154/ECE2160_HW4/src/critter_algo.c -o compute -Wl,-z,norelro -lm -Wl,-Map=compute.map
+ok      : True   compile 0.449s
+image   : text=13482 data=848 bss=49472 total=63802  file=22856
+sections: .text=7244 .rodata=1248 .eh_frame(+hdr)=2008 relocs=936
+stack   : worst frame 41232 B in scratch_on_stack, 0 dynamic frames
+largest : g_static_work(32768B,b), g_static_aug(8448B,b), g_status(8192B,b), main(1576B,T), solve_forecast(528B,t)
+
+=== compute [probe]  -O2 -Wl,-z,norelro
+cmd     : gcc -std=gnu11 -Wall -Wno-unused-function -ffp-contract=off -O2 -fstack-usage -DCRITTER_STACK_PROBE -I/home/jaj154/ECE2160_HW4/src /home/jaj154/ECE2160_HW4/src/unit_compute.c /home/jaj154/ECE2160_HW4/src/critter_common.c /home/jaj154/ECE2160_HW4/src/critter_algo.c -o compute -Wl,-z,norelro -lm -Wl,-Map=compute.map
+ok      : True   compile 0.461s
+image   : text=14043 data=856 bss=49488 total=64387  file=23584
+sections: .text=7596 .rodata=1296 .eh_frame(+hdr)=2096 relocs=960
+stack   : worst frame 1048592 B in probe_paint, 1 dynamic frames
+largest : g_static_work(32768B,b), g_static_aug(8448B,b), g_status(8192B,b), main(1576B,T), solve_forecast(528B,t)
+
+=== compute  -O2 -Wl,-z,noseparate-code
+cmd     : gcc -std=gnu11 -Wall -Wno-unused-function -ffp-contract=off -O2 -fstack-usage -I/home/jaj154/ECE2160_HW4/src /home/jaj154/ECE2160_HW4/src/unit_compute.c /home/jaj154/ECE2160_HW4/src/critter_common.c /home/jaj154/ECE2160_HW4/src/critter_algo.c -o compute -Wl,-z,noseparate-code -lm -Wl,-Map=compute.map
+ok      : True   compile 0.448s
+image   : text=13482 data=848 bss=49472 total=63802  file=73704
+sections: .text=7244 .rodata=1248 .eh_frame(+hdr)=2008 relocs=936
+stack   : worst frame 41232 B in scratch_on_stack, 0 dynamic frames
+largest : g_static_work(32768B,b), g_static_aug(8448B,b), g_status(8192B,b), main(1576B,T), solve_forecast(528B,t)
+
+=== compute [probe]  -O2 -Wl,-z,noseparate-code
+cmd     : gcc -std=gnu11 -Wall -Wno-unused-function -ffp-contract=off -O2 -fstack-usage -DCRITTER_STACK_PROBE -I/home/jaj154/ECE2160_HW4/src /home/jaj154/ECE2160_HW4/src/unit_compute.c /home/jaj154/ECE2160_HW4/src/critter_common.c /home/jaj154/ECE2160_HW4/src/critter_algo.c -o compute -Wl,-z,noseparate-code -lm -Wl,-Map=compute.map
+ok      : True   compile 0.458s
+image   : text=14043 data=856 bss=49488 total=64387  file=73880
+sections: .text=7596 .rodata=1296 .eh_frame(+hdr)=2096 relocs=960
+stack   : worst frame 1048592 B in probe_paint, 1 dynamic frames
+largest : g_static_work(32768B,b), g_static_aug(8448B,b), g_status(8192B,b), main(1576B,T), solve_forecast(528B,t)
+

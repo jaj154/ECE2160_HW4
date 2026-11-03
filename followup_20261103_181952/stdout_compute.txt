@@ -1,0 +1,34 @@
+@@unit=compute
+@@sample_type=double
+@@sample_bytes=8
+@@mode=materialized
+@@scratch=heap
+@@n=1000000
+@@p=8
+@@horizon=4000
+@@depth=10
+@@phase=acquire vmrss_kb=9584 vmhwm_kb=9584 heap_cur=8011760 heap_peak=8011760 t_s=0.030265
+@@phase=build-design vmrss_kb=142432 vmhwm_kb=142432 heap_cur=144048064 heap_peak=144048064 t_s=0.070133
+@@phase=fit vmrss_kb=142432 vmhwm_kb=142432 heap_cur=144048064 heap_peak=144048064 t_s=0.417532
+@@phase=forecast vmrss_kb=1792 vmhwm_kb=141872 heap_cur=41232 heap_peak=144048064 t_s=0.420367
+@@phase=scenarios vmrss_kb=1792 vmhwm_kb=141872 heap_cur=41232 heap_peak=144048064 t_s=0.420416
+@@forecast_peak_c=22.7288
+@@scenario_worst_c=22.7978
+@@checksum=1057856
+@@runtime_s=0.420428
+@@heap_peak_bytes=144048064
+@@heap_allocs=6
+@@heap_frees=6
+@@heap_live_at_exit=0
+@@vm_peak_kb=143808
+@@vm_hwm_kb=141872
+@@vm_rss_kb=1792
+@@vm_data_kb=336
+@@vm_stk_kb=144
+@@vm_exe_kb=16
+@@vm_lib_kb=2400
+@@rss_anon_kb=272
+@@rss_file_kb=1520
+@@malloc_arena_bytes=147456
+@@malloc_mmap_bytes=0
+@@malloc_inuse_bytes=4768

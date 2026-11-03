@@ -1,0 +1,29 @@
+@@unit=io
+@@sample_type=double
+@@sample_bytes=8
+@@strategy=grow
+@@n=1000000
+@@window=1000
+@@layout=naive
+@@record_bytes=24
+@@buffer_capacity=1048576
+@@phase=acquire vmrss_kb=25264 vmhwm_kb=25264 heap_cur=25182192 heap_peak=25182192 t_s=0.034885
+@@phase=summarize vmrss_kb=25264 vmhwm_kb=25264 heap_cur=25182192 heap_peak=25182192 t_s=0.037106
+@@checksum=71376405
+@@runtime_s=0.037561
+@@heap_peak_bytes=25182192
+@@heap_allocs=1
+@@heap_frees=1
+@@heap_live_at_exit=0
+@@vm_peak_kb=27680
+@@vm_hwm_kb=24624
+@@vm_rss_kb=1824
+@@vm_data_kb=288
+@@vm_stk_kb=144
+@@vm_exe_kb=16
+@@vm_lib_kb=2400
+@@rss_anon_kb=304
+@@rss_file_kb=1520
+@@malloc_arena_bytes=147456
+@@malloc_mmap_bytes=0
+@@malloc_inuse_bytes=4768
