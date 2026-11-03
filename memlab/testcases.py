@@ -185,6 +185,24 @@ FLAG_MATRIX = [
     (["-fsanitize=address"], [], "INCREASES",
      "AddressSanitizer: shadow memory (1/8 of address space reserved), redzones around every "
      "allocation and a quarantine of freed blocks. A debugging tool, never a shipping config."),
+    # ---- follow-up flags (ids 37+), stack- and size-oriented ----
+    (["-fconserve-stack"], [], "REDUCES",
+     "Asks GCC to minimise stack use, mainly by refusing inlining that would grow a caller's frame."),
+    (["-falign-functions=1"], [], "REDUCES",
+     "Removes the padding GCC inserts so each function starts on a cache-line-friendly boundary."),
+    (["-falign-loops=1"], [], "REDUCES",
+     "Removes the padding inserted before loop heads."),
+    (["-falign-functions=1", "-falign-jumps=1", "-falign-loops=1", "-falign-labels=1"], [], "REDUCES",
+     "All code-alignment padding removed together."),
+    (["-flto", "-fwhole-program"], [], "REDUCES",
+     "LTO plus the promise that the program is complete: every function except main becomes local, "
+     "so unused externally visible code can be discarded."),
+    ([], ["-Wl,-z,norelro"], "REDUCES",
+     "Drops the RELRO segment, which is page-aligned and made read-only after relocation; with 16 KB "
+     "pages its alignment can cost a page."),
+    ([], ["-Wl,-z,noseparate-code"], "REDUCES",
+     "Lets the linker place code and read-only data in fewer page-aligned segments, removing padding "
+     "that 16 KB pages make expensive."),
 ]
 
 
@@ -218,15 +236,18 @@ def suite_flags(cfg):
          "Static linking removes a FIXED cost (shared libc mapping, loader, relocations), so it saves "
          "about the same absolute amount at any N -- a shrinking percentage as data grow."),
     ]
-    for i, (cf, lf, expect, insight) in enumerate(large, 1):
-        label = " ".join(cf + lf)
-        tests.append(TestCase(
-            tid=f"F-LARGE-{i:02d}", suite="flags", title=f"{label} at production volume [mem]", unit="mem",
-            what=(f"Same comparison as the small-N flag tests, but the memory unit processes "
-                  f"N={cfg['n_large']:,} samples (data-dominated regime)."),
-            testing=f"Once data dominate the footprint, does '{label}' still matter?",
-            baseline=Variant("-O2 (baseline)", "mem"), variant=_flag_variant("mem", label, cf, lf),
-            expect=expect, regime="large", insight=insight))
+    large_ids = {"mem": "F-LARGE", "io": "F-LIO", "compute": "F-LCOM"}
+    for unit in ("mem", "io", "compute"):
+        for i, (cf, lf, expect, insight) in enumerate(large, 1):
+            label = " ".join(cf + lf)
+            tests.append(TestCase(
+                tid=f"{large_ids[unit]}-{i:02d}", suite="flags", title=f"{label} at production volume [{unit}]",
+                unit=unit,
+                what=(f"Same comparison as the small-N flag tests, but the {UNIT_ROLE[unit]} processes "
+                      f"N={cfg['n_large']:,} samples (data-dominated regime)."),
+                testing=f"Once data dominate the footprint, does '{label}' still matter?",
+                baseline=Variant("-O2 (baseline)", unit), variant=_flag_variant(unit, label, cf, lf),
+                expect=expect, regime="large", insight=insight))
     return tests
 
 

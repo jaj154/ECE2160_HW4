@@ -162,3 +162,21 @@ A variant can change `cflags`, `ldflags`, `defines`, `args`, `env` or `rlimits`.
 * **"Overlays":** the `overlay` suite (planned data overlay arena, and one process per phase as the OS-level overlay).
 * **"Which reduce, increase, are neutral":** the three tables at the top of `summary.md`.
 * **"Biggest impacts":** the "Biggest impacts" and "Lever size by category" sections, plus the auto-generated answer paragraph.
+
+## HW4 follow-up run (grader requests)
+
+`hw4_followup.sh` collects only the new data requested after grading, in one pass (about 10-20 minutes on a Pi 5):
+
+1. The seven new flags (`-fconserve-stack`, `-falign-functions=1`, `-falign-loops=1`, all `-falign-*=1` together,
+   `-flto -fwhole-program`, `-Wl,-z,norelro`, `-Wl,-z,noseparate-code`) on all three units (tests F-*-37 to F-*-43).
+2. The five production-volume flags (`-O0`, `-Os`, `-O3`, `-flto`, `-static` at N = 1,000,000) on the I/O and
+   compute units as well as the memory unit (F-LIO-*, F-LCOM-*, F-LARGE-*).
+3. Raw `time -v` output for each unit's baseline at N = 1,000,000 (`timev_*.txt`).
+4. The FORTIFY investigation: max RSS x10, `/proc/self/smaps` at exit (via `tools/smapsdump.c`), program headers,
+   imported `_chk` symbols and, if installed, an `strace` of mappings, for plain and `-D_FORTIFY_SOURCE=2` builds of
+   the I/O unit and the empty program.
+
+```bash
+sudo apt install strace     # optional but useful for the FORTIFY check
+bash hw4_followup.sh        # produces followup_<timestamp>.zip
+```
